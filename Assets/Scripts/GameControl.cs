@@ -30,6 +30,7 @@ public class GameControl : MonoBehaviour
     private MapManager mapManager;
     private CustomerManager customerManager;
     private PlayerManager playerManager;
+    private QuestManager questManager;
 
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class GameControl : MonoBehaviour
         mapManager.Open();
         customerManager.Open();
         playerManager.Open();
+        questManager.Open();
 
         BasketPosition.AddRange(GameObject.Find("basketpoint").gameObject.GetComponentsInChildren<CustomerPositionCheck>());
     }
@@ -59,5 +61,6 @@ public class GameControl : MonoBehaviour
         mapManager = Managers.Find(x => x.myType == TypeClass.ManagerType.Map) as MapManager;
         customerManager = Managers.Find(x => x.myType == TypeClass.ManagerType.Customer) as CustomerManager;
         playerManager = Managers.Find(x => x.myType == TypeClass.ManagerType.Player) as PlayerManager;
+        questManager = Managers.Find(x => x.myType == TypeClass.ManagerType.Quest) as QuestManager;
     }
 }
