@@ -212,7 +212,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myType: 0
   guideQuest: {fileID: 0}
-  ArrowObj: {fileID: 0}
+  ArrowObj: {fileID: 4298803797879809462, guid: 171937170d5f47d45b84854b4f2790f8, type: 3}
+  questObjs: []
+  questNum: 0
 --- !u!1 &646424507
 GameObject:
   m_ObjectHideFlags: 0
