@@ -3,11 +3,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    
+    [SerializeField] private GameObject playerArrow;
+
     public float moveSpeed = 5f;
     private JoyStick joyStick;
     public Animator Ani;
     private bool isMoving;
+
+    private QuestManager QuestManager;
+
+    private void Awake()
+    {
+        QuestManager = GameObject.Find("Quest").GetComponent<QuestManager>();
+    }
 
     public void Start()
     {
@@ -25,11 +33,9 @@ public class PlayerMovement : MonoBehaviour
                 break;
             case TouchPhase.Ended:
                 isMoving = false;
-                Ani.SetBool("player_idle", true);
                 Ani.SetBool("player_walk", false);
                 break;
             case TouchPhase.Moved:
-                Ani.SetBool("player_idle", false);
                 Ani.SetBool("player_walk", true);
                 break;
         }
@@ -44,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
         var movement = new Vector3(moveX, 0, moveZ);
         transform.Translate(movement, Space.World);
         player.transform.rotation = Quaternion.LookRotation(movement);
+        if(QuestManager.questNum > 2) return;
+        var dir = new Vector3(QuestManager.GetTargetPos().x, 0f, QuestManager.GetTargetPos().z);
+        playerArrow.transform.LookAt(dir);
     }
 
     public void SetJoyStick(JoyStick _joyStick)

@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 5196280930282946429}
   - component: {fileID: 5818972564923734408}
   - component: {fileID: 2132965819719342213}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 7905971448667304734}
   - component: {fileID: 8078721552138624770}
   - component: {fileID: 3171173642541940506}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Customer
   m_TagString: Customer
   m_Icon: {fileID: 0}
@@ -527,11 +527,14 @@ MonoBehaviour:
   myType: 0
   guideQuest: {fileID: 0}
   ArrowObj: {fileID: 0}
+  questObjs: []
+  questNum: 0
   quest_txt: {fileID: 4607257270043433767}
   bubble_img: {fileID: 6073992470841005063}
   bread_img: {fileID: 4096446206294864658}
   pos_img: {fileID: 3962614368803182663}
   isBreadQuest: 0
+  isTakeOut: 1
 --- !u!1 &3898563997361661198
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +578,7 @@ GameObject:
   - component: {fileID: 401425782062277525}
   - component: {fileID: 5498856986966254814}
   - component: {fileID: 3962614368803182663}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -874,7 +877,7 @@ GameObject:
   - component: {fileID: 7001926763172934038}
   - component: {fileID: 8055838568300912180}
   - component: {fileID: 4096446206294864658}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -950,7 +953,7 @@ GameObject:
   - component: {fileID: 2217761056206829794}
   - component: {fileID: 6252380403003195055}
   - component: {fileID: 4607257270043433767}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1119,7 +1122,7 @@ GameObject:
   - component: {fileID: 2612603821108666024}
   - component: {fileID: 1602534785099152913}
   - component: {fileID: 6073992470841005063}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

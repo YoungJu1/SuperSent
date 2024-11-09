@@ -1,14 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuideSignQuest : MonoBehaviour
+public class GuideSignQuest : MonoBehaviour 
 {
     public List<GameObject> Bread = new List<GameObject>();
 
     private const int breadMaxCount = 30;
-
-
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Customer"))

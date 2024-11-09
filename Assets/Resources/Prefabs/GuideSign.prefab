@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 573794143505615324}
   - component: {fileID: 8009582435068393776}
   - component: {fileID: 8252068944769212318}
-  - component: {fileID: 477428620666335440}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Basket(Clone) (1)
   m_TagString: GuideSign
   m_Icon: {fileID: 0}
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &477428620666335440
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4450227326402965509}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9345967, y: 1.0579989, z: 1.9905466}
-  m_Center: {x: 0, y: 0.5251769, z: 0}
 --- !u!1 &4454106526561212889
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +96,7 @@ GameObject:
   - component: {fileID: 7844795563591937171}
   - component: {fileID: 9186395197378399496}
   - component: {fileID: 3807817794356491687}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +197,7 @@ GameObject:
   - component: {fileID: 417982987126304404}
   - component: {fileID: 7625910707472721671}
   - component: {fileID: 6336068943217717888}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +230,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7625910707472721671
 MonoBehaviour:
@@ -286,7 +272,7 @@ GameObject:
   - component: {fileID: 9109092402697914272}
   - component: {fileID: 2503063361259808126}
   - component: {fileID: 3678844664647719357}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,8 +348,9 @@ GameObject:
   - component: {fileID: 6099718469159671499}
   - component: {fileID: 8619918904711764232}
   - component: {fileID: 3760379985005745516}
-  - component: {fileID: 441847701071169856}
-  m_Layer: 0
+  - component: {fileID: 1103877652831588203}
+  - component: {fileID: 2483814381755193351}
+  m_Layer: 7
   m_Name: GuideSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +424,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &441847701071169856
+--- !u!114 &1103877652831588203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8942024746104711844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f146aeaa71469aa3db7ca17a04c1b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2483814381755193351
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -448,5 +447,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.11215529, y: 1.1109135, z: 1.1822435}
-  m_Center: {x: -0.0021535065, y: 0.5561532, z: 0.00000029802322}
+  m_Size: {x: 1.9340029, y: 2.1299489, z: 1.7935612}
+  m_Center: {x: 0.9087703, y: 0.04663551, z: -0.01715672}

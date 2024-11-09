@@ -10,9 +10,13 @@ public class MapManager : GameControlBase
     private float posZ_floor = 0;
     private float posX_wall = -2.5f;
     private float posZ_wall = -3;
-
+    
     private GameObject changeFloor;
-
+    private QuestManager QuestManager;
+    private void Awake()
+    {
+        QuestManager = GameObject.Find("Quest").GetComponent<QuestManager>();
+    }
     public override void Init(ManagerType _type)
     {
         base.Init(_type);
@@ -85,9 +89,11 @@ public class MapManager : GameControlBase
 
         var entrance = Instantiate(Resources.Load("Prefabs/Entrance") as GameObject, new Vector3(-3.8f, 0, 8.9f), Quaternion.Euler(0, 90, 0));
         var breadoven = Instantiate(Resources.Load("Prefabs/BreadOven") as GameObject, new Vector3(10, 0, 3), Quaternion.Euler(0, 90, 0));
-        // var basket = Instantiate(Resources.Load("Prefabs/Basket") as GameObject, new Vector3(12.5f, 0, 3), Quaternion.identity);
         var tablepos = Instantiate(Resources.Load("Prefabs/TableShort") as GameObject, new Vector3(9, 0, 11), Quaternion.Euler(0, 90, 0));
         var gaidesign = Instantiate(Resources.Load("Prefabs/GuideSign") as GameObject, new Vector3(1.5f, 1, 3), Quaternion.identity);
+        QuestManager.AddQuestObj(breadoven);
+        QuestManager.AddQuestObj(gaidesign);
+        QuestManager.AddQuestObj(tablepos);
         var collidercheck1 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(2.53f, 0, 4.73f), Quaternion.identity);
         var collidercheck2 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(4.17f, 0, 3.44f), Quaternion.Euler(0, 270, 0));
         var collidercheck3 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(4.17f, 0, 9), Quaternion.identity);
@@ -97,7 +103,6 @@ public class MapManager : GameControlBase
         var collidercheck7 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(0.86f, 0, 18.08f), Quaternion.Euler(0, 90, 0));
         entrance.transform.SetParent(GameObject.Find("Objects").transform);
         breadoven.transform.SetParent(GameObject.Find("Objects").transform);
-        // basket.transform.SetParent(GameObject.Find("Objects").transform);
         tablepos.transform.SetParent(GameObject.Find("Objects").transform);
         gaidesign.transform.SetParent(GameObject.Find("Objects").transform);
         collidercheck1.transform.SetParent(GameObject.Find("basketpoint").transform);
