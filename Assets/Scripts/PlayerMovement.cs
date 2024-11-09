@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-
     [SerializeField] private GameObject player;
+    
+    public float moveSpeed = 5f;
     private JoyStick joyStick;
     public Animator Ani;
     private bool isMoving;
@@ -16,32 +16,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount <= 0) return;
+        var touch = Input.GetTouch(0);
+        switch (touch.phase)
         {
-            var touch = Input.GetTouch(0);
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    isMoving = true;
-                    break;
-                case TouchPhase.Ended:
-                    isMoving = false;
-                    // idle 애니메이션
-                    Debug.Log("Ended");
-                    Ani.SetBool("player_idle", true);
-                    Ani.SetBool("player_walk", false);
-                    break;
-                case TouchPhase.Moved:
-                    // move 애니메이션
-                    Debug.Log("Moved");
-                    Ani.SetBool("player_idle", false);
-                    Ani.SetBool("player_walk", true);
-                    break;
-            }
-        }
-        else
-        {
-            isMoving = false;
+            case TouchPhase.Began:
+                isMoving = true;
+                break;
+            case TouchPhase.Ended:
+                isMoving = false;
+                Ani.SetBool("player_idle", true);
+                Ani.SetBool("player_walk", false);
+                break;
+            case TouchPhase.Moved:
+                Ani.SetBool("player_idle", false);
+                Ani.SetBool("player_walk", true);
+                break;
         }
     }
 
