@@ -33,7 +33,12 @@ public class CustomerMove : CustomerManager
         targetobj = _obj;
         aniCheck = true;
     }
-
+    public void ChangeMovePoint(Transform _pos, GameObject _obj)
+    {
+        trs = _pos;
+        targetobj = _obj;
+        aniCheck = true;
+    }
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, trs.position, speed * Time.deltaTime);

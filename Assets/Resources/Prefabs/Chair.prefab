@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4361656473401035199}
   - component: {fileID: 7565793094607312348}
   m_Layer: 0
-  m_Name: Chair(Clone)
+  m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

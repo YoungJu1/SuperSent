@@ -11,6 +11,8 @@ public class MapManager : GameControlBase
     private float posX_wall = -2.5f;
     private float posZ_wall = -3;
 
+    private GameObject changeFloor;
+
     public override void Init(ManagerType _type)
     {
         base.Init(_type);
@@ -36,6 +38,7 @@ public class MapManager : GameControlBase
                     var questobj = Instantiate(Resources.Load("Prefabs/Floor_04") as GameObject, new Vector3(posX_floor, 0, posZ_floor), Quaternion.identity);
                     questobj.transform.SetParent(GameObject.Find("Floors").transform);
                     Floors.Add(questobj);
+                    changeFloor = questobj;
 
                     continue;
                 }
@@ -88,6 +91,8 @@ public class MapManager : GameControlBase
         var collidercheck1 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(2.53f, 0, 4.73f), Quaternion.identity);
         var collidercheck2 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(4.17f, 0, 3.44f), Quaternion.Euler(0, 270, 0));
         var collidercheck3 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(4.17f, 0, 9), Quaternion.identity);
+        var collidercheck4 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(7.31f, 0, 9.95f), Quaternion.identity);
+        var collidercheck5 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(7.31f, 0, 12.47f), Quaternion.identity);
         entrance.transform.SetParent(GameObject.Find("Objects").transform);
         breadoven.transform.SetParent(GameObject.Find("Objects").transform);
         // basket.transform.SetParent(GameObject.Find("Objects").transform);
@@ -96,6 +101,8 @@ public class MapManager : GameControlBase
         collidercheck1.transform.SetParent(GameObject.Find("basketpoint").transform);
         collidercheck2.transform.SetParent(GameObject.Find("basketpoint").transform);
         collidercheck3.transform.SetParent(GameObject.Find("basketpoint").transform);
+        collidercheck4.transform.SetParent(GameObject.Find("basketpoint").transform);
+        collidercheck5.transform.SetParent(GameObject.Find("basketpoint").transform);
     }
     private void QuestClear_FloorWallChange()
     {
@@ -113,6 +120,17 @@ public class MapManager : GameControlBase
             //Walls[wallscount].SetActive(false);
             Destroy(Walls[wallscount]);
             wallscount--;
+        }
+
+        var questobj = Instantiate(Resources.Load("Prefabs/Floor_03") as GameObject, changeFloor.transform.position, Quaternion.identity);
+        questobj.transform.SetParent(GameObject.Find("Floors").transform);
+        changeFloor.SetActive(false);
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            QuestClear_FloorWallChange();
         }
     }
 }

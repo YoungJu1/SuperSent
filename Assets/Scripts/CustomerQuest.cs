@@ -11,16 +11,20 @@ public class CustomerQuest : QuestManager
     public Image bread_img;
     public bool isBreadQuest = false;
 
-    private List<int> bread = new List<int>();
+    private List<GameObject> bread = new List<GameObject>();
+    private CustomerMove customerMove;
     private int wishBreadCount;
-    private bool breadmove = false;
+    private bool breadclear = false;
 
+    private void Start()
+    {
+        customerMove = GetComponent<CustomerMove>();
+    }
     public void WishBreadUI()
     {
         wishBreadCount = Random.Range(1, 7);
         quest_txt.text = wishBreadCount.ToString();
         bubble_img.gameObject.SetActive(true);
-        breadmove = true;
     }
     private void GetBread()
     {
@@ -30,11 +34,19 @@ public class CustomerQuest : QuestManager
         {
             if (i == wishBreadCount) return;
 
+            bread.Add(guideQuest.Bread[i]);
             guideQuest.Bread[i].transform.SetParent(gameObject.transform);
             guideQuest.Bread.RemoveAt(i);
         }
+
+        if (wishBreadCount == bread.Count)
+        {
+            breadclear = true;
+            customerMove.ChangeMovePoint(GameControl.Instance.BasketPosition[3].gameObject.transform, GameObject.FindGameObjectWithTag("Pos"));
+            customerMove.Ani.SetBool("walk", true);
+        }
     }
-    
+
     private void Update()
     {
         bubble_img.transform.LookAt(Camera.main.transform);
@@ -44,8 +56,10 @@ public class CustomerQuest : QuestManager
             isBreadQuest = false;
             WishBreadUI();
         }
-        if (breadmove)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            customerMove.ChangeMovePoint(GameControl.Instance.BasketPosition[3].gameObject.transform, GameObject.FindGameObjectWithTag("Pos"));
+            customerMove.Ani.SetBool("walk", true);
         }
     }
 }
