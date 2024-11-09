@@ -93,6 +93,8 @@ public class MapManager : GameControlBase
         var collidercheck3 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(4.17f, 0, 9), Quaternion.identity);
         var collidercheck4 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(7.31f, 0, 9.95f), Quaternion.identity);
         var collidercheck5 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(7.31f, 0, 12.47f), Quaternion.identity);
+        var collidercheck6 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(-7f, 0, 9), Quaternion.Euler(0, 90, 0));
+        var collidercheck7 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(0.86f, 0, 18.08f), Quaternion.Euler(0, 90, 0));
         entrance.transform.SetParent(GameObject.Find("Objects").transform);
         breadoven.transform.SetParent(GameObject.Find("Objects").transform);
         // basket.transform.SetParent(GameObject.Find("Objects").transform);
@@ -103,6 +105,8 @@ public class MapManager : GameControlBase
         collidercheck3.transform.SetParent(GameObject.Find("basketpoint").transform);
         collidercheck4.transform.SetParent(GameObject.Find("basketpoint").transform);
         collidercheck5.transform.SetParent(GameObject.Find("basketpoint").transform);
+        collidercheck6.transform.SetParent(GameObject.Find("basketpoint").transform);
+        collidercheck7.transform.SetParent(GameObject.Find("basketpoint").transform);
     }
     private void QuestClear_FloorWallChange()
     {

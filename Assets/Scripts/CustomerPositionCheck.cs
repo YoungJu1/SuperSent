@@ -6,6 +6,8 @@ public class CustomerPositionCheck : MonoBehaviour
 {
     public bool isCutromer = false;
 
+    public int collideridx = -1;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Customer"))

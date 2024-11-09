@@ -9,6 +9,7 @@ public class CustomerMove : CustomerManager
     public Animator Ani;
     public bool moveBasket = false;
 
+    private CustomerQuest customerQuest;
     private float speed = 1f;
     private bool aniCheck = false;
 
@@ -23,6 +24,7 @@ public class CustomerMove : CustomerManager
         Ani.SetBool("walk", true);
         trs = GameControl.Instance.BasketPosition[2].gameObject.transform;
         targetobj = GameControl.Instance.BasketPosition[2].gameObject;
+        customerQuest = GetComponent<CustomerQuest>();
     }
 
     public void ChangeMoveBasketPoint(Transform _pos, GameObject _obj)
@@ -39,6 +41,11 @@ public class CustomerMove : CustomerManager
         targetobj = _obj;
         aniCheck = true;
     }
+    public void ToOut()
+    {
+        Ani.SetBool("sitting", false);
+        ChangeMovePoint(GameControl.Instance.BasketPosition[5].gameObject.transform, GameObject.FindGameObjectWithTag("Entrance"));
+    }
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, trs.position, speed * Time.deltaTime);
@@ -48,6 +55,8 @@ public class CustomerMove : CustomerManager
         {
             aniCheck = false;
             Ani.SetBool("walk", false);
+
+            if (!customerQuest.isTakeOut) Ani.SetBool("sitting", true);
         }
     }
     private void OnTriggerEnter(Collider other)

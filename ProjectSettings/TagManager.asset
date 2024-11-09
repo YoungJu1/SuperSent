@@ -8,6 +8,8 @@ TagManager:
   - MoveCheck
   - GuideSign
   - Pos
+  - Chair
+  - Entrance
   layers:
   - Default
   - TransparentFX
