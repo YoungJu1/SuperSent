@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,19 +14,26 @@ public class TypeClass : MonoBehaviour
     }
 
     public ManagerType myType = ManagerType.None;
-}
 
+}
 public class GameControl : MonoBehaviour
 {
+    private static GameControl instance;
+    public static GameControl Instance
+    {
+        get { return instance; }
+    }
+
     public List<GameControlBase> Managers = new List<GameControlBase>();
+    public List<CustomerPositionCheck> BasketPosition = new List<CustomerPositionCheck>();
 
     private MapManager mapManager;
     private CustomerManager customerManager;
-    private PlayerManager PlayerManager;
+    private PlayerManager playerManager;
 
     private void Awake()
     {
-        if (Camera.main != null) Camera.main.gameObject.SetActive(false);
+        instance = this;
     }
 
     private void Start()
@@ -36,7 +42,9 @@ public class GameControl : MonoBehaviour
 
         mapManager.Open();
         customerManager.Open();
-        PlayerManager.Open();
+        playerManager.Open();
+
+        BasketPosition.AddRange(GameObject.Find("basketpoint").gameObject.GetComponentsInChildren<CustomerPositionCheck>());
     }
 
     private void Init()
@@ -50,6 +58,6 @@ public class GameControl : MonoBehaviour
 
         mapManager = Managers.Find(x => x.myType == TypeClass.ManagerType.Map) as MapManager;
         customerManager = Managers.Find(x => x.myType == TypeClass.ManagerType.Customer) as CustomerManager;
-        PlayerManager = Managers.Find(x => x.myType == TypeClass.ManagerType.Player) as PlayerManager;
+        playerManager = Managers.Find(x => x.myType == TypeClass.ManagerType.Player) as PlayerManager;
     }
 }

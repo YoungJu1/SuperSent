@@ -72,7 +72,7 @@ public class MapManager : GameControlBase
     }
     private void ObjectSetting()
     {
-        var wallscount = Walls.Count-1;
+        var wallscount = Walls.Count - 1;
 
         for (int i = 0; i < 3; i++)
         {
@@ -85,21 +85,17 @@ public class MapManager : GameControlBase
         var basket = Instantiate(Resources.Load("Prefabs/Basket") as GameObject, new Vector3(12.5f, 0, 3), Quaternion.identity);
         var tablepos = Instantiate(Resources.Load("Prefabs/TableShort") as GameObject, new Vector3(9, 0, 11), Quaternion.Euler(0, 90, 0));
         var gaidesign = Instantiate(Resources.Load("Prefabs/GuideSign") as GameObject, new Vector3(1.5f, 1, 3), Quaternion.identity);
-        var collidercheck1 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(4.7f, 1, 9), Quaternion.identity);
-        var collidercheck2 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(5.36f, 1, 3.5f), Quaternion.identity);
-        var collidercheck3 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(4.17f, 1, 3.44f), Quaternion.identity);
-        var collidercheck4 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(2.53f, 1, 9), Quaternion.identity);
-        var collidercheck5 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(2.53f, 1, 4.73f), Quaternion.identity);
+        var collidercheck1 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(2.53f, 0, 4.73f), Quaternion.identity);
+        var collidercheck2 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(4.17f, 0, 3.44f), Quaternion.Euler(0, 270, 0));
+        var collidercheck3 = Instantiate(Resources.Load("Prefabs/collidercheck") as GameObject, new Vector3(4.17f, 0, 9), Quaternion.identity);
         entrance.transform.SetParent(GameObject.Find("Objects").transform);
         breadoven.transform.SetParent(GameObject.Find("Objects").transform);
         basket.transform.SetParent(GameObject.Find("Objects").transform);
         tablepos.transform.SetParent(GameObject.Find("Objects").transform);
         gaidesign.transform.SetParent(GameObject.Find("Objects").transform);
-        collidercheck1.transform.SetParent(GameObject.Find("Objects").transform);
-        collidercheck2.transform.SetParent(GameObject.Find("Objects").transform);
-        collidercheck3.transform.SetParent(GameObject.Find("Objects").transform);
-        collidercheck4.transform.SetParent(GameObject.Find("Objects").transform);
-        collidercheck5.transform.SetParent(GameObject.Find("Objects").transform);
+        collidercheck1.transform.SetParent(GameObject.Find("basketpoint").transform);
+        collidercheck2.transform.SetParent(GameObject.Find("basketpoint").transform);
+        collidercheck3.transform.SetParent(GameObject.Find("basketpoint").transform);
     }
     private void QuestClear_FloorWallChange()
     {

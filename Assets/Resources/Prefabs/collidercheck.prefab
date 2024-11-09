@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1378077823908823708}
   m_Layer: 0
   m_Name: collidercheck
-  m_TagString: Untagged
+  m_TagString: MoveCheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be975907d1f10040892960eb6900f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCutromer: 0
 --- !u!54 &-1378077823908823708
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class CustomerManager : GameControlBase
 {
-    public enum CustomerState
-    {
-        None=0,
-        BasketCase1=1,
-        BasketCase2=2,
-        TakeOut=3,
-        Sitting=4,
-    }
-
     public int customerCount = 10;
 
     private List<GameObject> Customers = new List<GameObject>();
@@ -37,8 +28,6 @@ public class CustomerManager : GameControlBase
         {
             var customerobj = Instantiate(Resources.Load("Prefabs/Customer") as GameObject, new Vector3(-4.7f, 0, 9), Quaternion.Euler(0, 90, 0));
             customerobj.transform.SetParent(GameObject.Find("Customers").transform);
-            if (i % 2 == 0) customerobj.GetComponent<CustomerMove>().myState = CustomerState.BasketCase1;
-            else customerobj.GetComponent<CustomerMove>().myState = CustomerState.BasketCase2;
             customerobj.SetActive(false);
 
             Customers.Add(customerobj);
@@ -57,7 +46,7 @@ public class CustomerManager : GameControlBase
         {
             for (int i = 0; i < Customers.Count; i++)
             {
-                if (activeCount == 3) break;
+                if (activeCount == 2) break;
 
                 if (Customers[i].activeSelf == false)
                 {
@@ -66,6 +55,7 @@ public class CustomerManager : GameControlBase
                 }
             }
             currentTime = 0f;
+            //activeCount = 0;
         }
     }
 }
