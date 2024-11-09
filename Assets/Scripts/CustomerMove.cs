@@ -10,6 +10,7 @@ public class CustomerMove : CustomerManager
     public bool moveBasket = false;
 
     private float speed = 1f;
+    private bool aniCheck = false;
 
     public override void Init(ManagerType _type)
     {
@@ -30,12 +31,19 @@ public class CustomerMove : CustomerManager
 
         trs = _pos;
         targetobj = _obj;
+        aniCheck = true;
     }
 
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, trs.position, speed * Time.deltaTime);
         transform.LookAt(targetobj.transform);
+
+        if (transform.position == trs.position && aniCheck)
+        {
+            aniCheck = false;
+            Ani.SetBool("walk", false);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
